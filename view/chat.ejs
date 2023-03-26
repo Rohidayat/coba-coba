@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BISMA chat</title>
+    <link rel="stylesheet" href="/css/chat.css">
+</head>
+<body>
+    <div class="judul">
+        <h3>test chat</h3>
+    </div>
+    <div class="chat">
+        <% for (let pesan of pesannya) { %>
+            
+            <% if (pesan.nama === namanya) { %>
+                <div class="saya">
+                    <div class="user biruDua">
+                        <p class="nama"><%= pesan.nama %></p>
+                        <p class="pesanUser"><%= pesan.pesan %></p>
+                    </div>
+                </div>
+            <% } else { %>
+                <div class="chatnya">
+                    <div class="user biru">
+                        <p class="nama"><%= pesan.nama %></p>
+                        <p class="pesanUser"><%= pesan.pesan %></p>
+                    </div>
+                </div>
+            <% } %>
+
+        <% } %>
+    </div>
+    <div class="pesan">
+        <form action="/kirim" method="post">
+            <div class="inputan">
+                <input class="hilang" type="text" value="<%= namanya %>" name="nama">
+                <input class="inputPesan" type="text" placeholder="tulis pesan" name="pesan">
+            </div>
+            <input class="submit" type="submit">
+            <img class="kirim" src="/img/send-message.png">
+        </form>
+    </div>
+    <script type="text/javascript" src="/js/chat.js"></script>
+</body>
+</html>
